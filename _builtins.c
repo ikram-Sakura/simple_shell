@@ -17,7 +17,7 @@ int ft_alias(info_t *info, char *str)
 		return (1);
 	c = *p;
 	*p = 0;
-	ret = delete_node(&(info->alias),
+	ret = rm_node(&(info->alias),
 		get_node_index(info->alias, node_starter(info->alias, str, -1)));
 	*p = c;
 	return (ret);

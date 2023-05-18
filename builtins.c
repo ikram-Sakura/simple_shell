@@ -40,7 +40,7 @@ int ft_cd(info_t *info)
 	if (change_dir_ret == -1)
 	{
 		print_error(info, "can't cd to ");
-		_eputs(info->argv[1]), _putchar('\n');
+		_puts(info->argv[1]), _putchar('\n');
 	}
 	else
 	{
@@ -68,7 +68,7 @@ int ft_exit(info_t *info)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
-			_eputs(info->argv[1]);
+			_puts(info->argv[1]);
 			_putchar('\n');
 			return (1);
 		}
