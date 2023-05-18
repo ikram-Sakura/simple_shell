@@ -23,7 +23,7 @@ int _setenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		_eputs("Incorrect number of arguements\n");
+		_puts("Incorrect number of arguements\n");
 		return (1);
 	}
 	if (_setenv(info, info->argv[1], info->argv[2]))
@@ -32,12 +32,12 @@ int _setenv(info_t *info)
 }
 
 /**
- * populate_env_list - populates env linked list
+ * populate_env - populates env linked list
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
-int populate_env_list(info_t *info)
+int populate_env(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
@@ -82,7 +82,7 @@ int _unsetenv(info_t *info)
 
 	if (info->argc == 1)
 	{
-		_eputs("Too few arguements.\n");
+		_puts("Too few arguements.\n");
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)

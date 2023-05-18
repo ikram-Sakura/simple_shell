@@ -21,7 +21,7 @@ int _unsetenv(info_t *info, char *var)
 		p = starts_with(node->str, var);
 		if (p && *p == '=')
 		{
-			info->env_changed = delete_node(&(info->env), i);
+			info->env_changed = rm_node(&(info->env), i);
 			i = 0;
 			node = info->env;
 			continue;
