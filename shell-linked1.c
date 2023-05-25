@@ -1,12 +1,12 @@
 #include "shell.h"
 
+/* Done by youssef && ikram */
 /**
- * list_len - determines length of linked list
- * @h: pointer to first node
- *
+ * _list_len - len of linked
+ * @h: pointer 1st node
  * Return: size of list
  */
-size_t list_len(const list_t *h)
+size_t _list_len(const list_t *h)
 {
 	size_t i = 0;
 
@@ -18,18 +18,18 @@ size_t list_len(const list_t *h)
 	return (i);
 }
 
+/* Done by youssef && ikram */
 /**
- * list_to_strings - returns an array of strings of the list->str
- * @head: pointer to first node
- *
- * Return: array of strings
+ * _list_to_string - return arr string list str
+ * @head: pointer 1st node
+ * Return: arr of string
  */
-char **list_to_strings(list_t *head)
+
+char **_list_to_string(list_t *head)
 {
 	list_t *node = head;
-	size_t i = list_len(head), j;
-	char **strs;
-	char *str;
+	size_t i = _list_len(head), j;
+	char **strs, *str;
 
 	if (!head || !i)
 		return (NULL);
@@ -54,20 +54,19 @@ char **list_to_strings(list_t *head)
 	return (strs);
 }
 
-
 /**
- * print_list - prints all elements of a list_t linked list
- * @h: pointer to first node
- *
- * Return: size of list
+ * _print_list - print elem of linked
+ * @h: point 1st node
+ * Return: size of node
  */
-size_t print_list(const list_t *h)
+
+size_t _print_list(const list_t *h)
 {
 	size_t i = 0;
 
 	while (h)
 	{
-		_puts(num_converter(h->num, 10, 0));
+		_puts(_convert_number(h->num, 10, 0));
 		_putchar(':');
 		_putchar(' ');
 		_puts(h->str ? h->str : "(nil)");
@@ -79,20 +78,20 @@ size_t print_list(const list_t *h)
 }
 
 /**
- * node_starter - returns node whose string starts with prefix
- * @node: pointer to list head
+ * _node_starts_with - return node start with prefix
+ * @node: pointer 1st node
  * @prefix: string to match
- * @c: the next character after prefix to match
- *
+ * @c: next char after prefix to much
  * Return: match node or null
  */
-list_t *node_starter(list_t *node, char *prefix, char c)
+
+list_t *_node_starts_with(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 
 	while (node)
 	{
-		p = starts_with(node->str, prefix);
+		p = _starts_with(node->str, prefix);
 		if (p && ((c == -1) || (*p == c)))
 			return (node);
 		node = node->next;
@@ -101,13 +100,13 @@ list_t *node_starter(list_t *node, char *prefix, char c)
 }
 
 /**
- * get_node_index - gets the index of a node
- * @head: pointer to list head
- * @node: pointer to the node
- *
- * Return: index of node or -1
+ * _get_node_index - get index of node
+ * @head: point 1st head
+ * @node: point to node
+ * Return: index of node
  */
-ssize_t get_node_index(list_t *head, list_t *node)
+
+ssize_t _get_node_index(list_t *head, list_t *node)
 {
 	size_t i = 0;
 
